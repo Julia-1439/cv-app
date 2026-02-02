@@ -1,10 +1,10 @@
-import '../styles/App.css';
+import "../styles/App.css";
+import { useState } from "react";
 
-function App() {
+export default function App() {
   return (
     <>
+      <h1>Hello</h1>
     </>
   );
 }
-
-export default App;
