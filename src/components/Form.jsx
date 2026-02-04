@@ -4,12 +4,12 @@ export default function Form({ data, submitHandler }) {
       <h1>Edit CV</h1>
       <button type="submit" onClick={submitHandler}>Submit</button>
       <h2>Contact Information</h2>
-      <label htmlFor="form-name">Name</label>
-      <input type="text" name="name" id="form-name" defaultValue={data.name} /> {/* @todo rename from "form-name" to "cv-form-name" */}
-      <label htmlFor="form-email">Email</label>
-      <input type="email" name="email" id="form-email" defaultValue={data.email} />
-      <label htmlFor="form-tel">Phone</label>
-      <input type="tel" name="tel" id="form-tel" defaultValue={data.tel} />
+      <label htmlFor="cv-form-name">Name</label>
+      <input type="text" name="name" id="cv-form-name" defaultValue={data.name} />
+      <label htmlFor="cv-form-email">Email</label>
+      <input type="email" name="email" id="cv-form-email" defaultValue={data.email} />
+      <label htmlFor="cv-form-tel">Phone</label>
+      <input type="tel" name="tel" id="cv-form-tel" defaultValue={data.tel} />
     </form>
   );
 }
