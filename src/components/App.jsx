@@ -9,8 +9,6 @@ export default function App() {
     name: "Abigail Biggins",
     email: "abigail.biggins@yahoo.com",
     tel: "(123) 456-7890",
-    education: [],
-    experience: [],
   });
   const [editMode, setEditMode] = useState(true);
 
@@ -18,18 +16,32 @@ export default function App() {
     setEditMode(!editMode);
   };
   const submitHandler = (evt) => {
-    evt.preventDefault(); // Prevent form submission
-    setEditMode(false); 
+    evt.preventDefault(); // Prevent form reset and submission
+    setEditMode(false);
 
-    // @todo update the cvData with the submitted form data
-  }
+    const cvForm = document.getElementById("cv-form");
+    const formData = new FormData(cvForm);
+    setCvData(
+      Object.fromEntries(
+        Object.entries(cvData).map(([key, val]) => {
+          const formVal = formData.get(key);
+          if (val !== formVal) return [key, formVal];
+          return [key, val];
+        }),
+      ),
+    );
+  };
 
   return (
     <>
       <PageHeader />
       <main>
-        <button type="button" onClick={editHandler}>Edit CV</button>
-        {editMode && <Form data={cvData} submitHandler={submitHandler} />}
+        <button type="button" onClick={editHandler}>
+          Edit CV
+        </button>
+        {editMode && (
+          <Form data={cvData} submitHandler={submitHandler} />
+        )}
         <CV data={cvData} />
       </main>
     </>
