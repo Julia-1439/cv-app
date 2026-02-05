@@ -3,13 +3,10 @@ import { useState } from "react";
 import PageHeader from "./PageHeader";
 import Form from "./Form.jsx";
 import CV from "./CV.jsx";
+import initialCV from "../initialCV.js";
 
 export default function App() {
-  const [cvData, setCvData] = useState({
-    name: "Abigail Biggins",
-    email: "abigail.biggins@yahoo.com",
-    tel: "(123) 456-7890",
-  });
+  const [cvData, setCvData] = useState(initialCV);
   const [editMode, setEditMode] = useState(true);
 
   const editHandler = (evt) => {
